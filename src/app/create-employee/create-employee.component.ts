@@ -46,6 +46,7 @@ export class CreateEmployeeComponent implements OnInit {
       this.route.navigate(["/"]);
     },
       err => {
+        alert(err.error.text);
         console.log(err);
       });
   }
