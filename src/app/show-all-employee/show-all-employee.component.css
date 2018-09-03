@@ -1,0 +1,10 @@
+.container{
+    background-color: #ffffff;
+    max-width: inherit;
+    margin-top: 2vh;
+}
+.searchAndAdd{
+    display: grid;
+    grid-template-columns: 4fr 1fr;
+    grid-gap: 10vh;
+}

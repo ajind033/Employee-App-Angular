@@ -1,0 +1,9 @@
+.container {
+    max-width: 50%;
+    background-color: #ffffff;
+    align-self: center;
+    margin-top: 2vh;
+  }
+  .radioGroupy{
+    float: left;
+  }

@@ -1,0 +1,108 @@
+<div class="container">
+  <h3> Add New Employee</h3>
+  <hr/>
+  <br/>
+  <form [formGroup]="detailsForm" (ngSubmit)="onSubmit()">
+    <div class="form-group">
+      <label>
+        Employee Id:
+        <input type="text" class="form-control" formControlName="empId" maxlength="4">
+
+        <div *ngIf="getDetail.empId.invalid && (getDetail.empId.dirty || getDetail.empId.touched)" class="alert alert-danger">
+          <div *ngIf="getDetail.empId.errors.required">
+            It is required.
+          </div>
+          <div *ngIf="getDetail.empId.errors.pattern">
+            It is a number.
+          </div>
+          <div *ngIf="getDetail.empId.errors.minlength">
+            It must be 4 digits long.
+          </div>
+        </div>
+      </label>
+    </div>
+    <div class="form-group">
+      <label>
+        First Name:
+        <input type="text" class="form-control" name="fname" formControlName="fname" maxlength="20">
+
+        <div *ngIf="getDetail.fname.invalid && (getDetail.fname.dirty || getDetail.fname.touched)" class="alert alert-danger">
+          <div *ngIf="getDetail.fname.errors.required">
+            It is required.
+          </div>
+          <div *ngIf="getDetail.fname.errors.pattern">
+            It is a character string.
+          </div>
+
+        </div>
+      </label>
+    </div>
+    <div class="form-group">
+      <label>
+        Last Name:
+        <input type="text" class="form-control" formControlName="lname" maxlength="20">
+
+        <div *ngIf="getDetail.lname.invalid && (getDetail.lname.dirty || getDetail.lname.touched)" class="alert alert-danger">
+          <div *ngIf="getDetail.lname.errors.required">
+            It is required.
+          </div>
+          <div *ngIf="getDetail.lname.errors.pattern">
+            It is an alphabetic string.
+          </div>
+        </div>
+      </label>
+    </div>
+    <div class="form-group">
+      <label>
+        Gender:
+        <br/>
+        <div *ngFor="let gen of genders" class="radioGroupy">
+          &nbsp;
+          <input type="radio" [value]='gen' formControlName="gender" id={{gen}}> &nbsp; {{gen}}
+        </div>
+      </label>
+    </div>
+    <div class="form-group">
+      <label>
+        Contact No:
+        <input type="text" class="form-control" formControlName="contact" maxlength="10">
+
+        <div *ngIf="getDetail.contact.invalid && (getDetail.contact.dirty || getDetail.contact.touched)" class="alert alert-danger">
+          <div *ngIf="getDetail.contact.errors.required">
+            It is required.
+          </div>
+          <div *ngIf="getDetail.contact.errors.pattern">
+            It is a number.
+          </div>
+          <div *ngIf="getDetail.contact.errors.minlength">
+            It must be 10 digits long.
+          </div>
+        </div>
+      </label>
+    </div>
+    <div class="form-group">
+      <label>
+        Password:
+        <div class="form-control">
+          <input type="password" id="passwordId" style="border: none;" formControlName="password" maxlength="16">
+          <span class="glyphicon glyphicon-eye-open" (click)='togglePass("passwordId")'></span>
+        </div>
+        <div *ngIf="getDetail.password.invalid && (getDetail.password.dirty || getDetail.password.touched)" class="alert alert-danger">
+          <div *ngIf="getDetail.password.errors.required">
+            It is required.
+          </div>
+          <div *ngIf="getDetail.password.errors.minlength">
+            It must be 8 characters long.
+          </div>
+          <div *ngIf="getDetail.password.errors.pattern">
+            It must have atleast one Uppercase, one Lowercase, one Digit and one Special character.
+          </div>
+
+        </div>
+      </label>
+    </div>
+    
+    <button type="submit" class="btn btn-success" [disabled]="(!detailsForm.valid)">Submit</button>
+  </form>
+  <br/>
+</div>
